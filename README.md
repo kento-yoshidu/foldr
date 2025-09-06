@@ -1,0 +1,2 @@
+# foldr
+foldr by Rust
