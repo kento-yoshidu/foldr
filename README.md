@@ -13,15 +13,10 @@ Right fold is like the standard fold, but it applies the function from the right
 ```rust
 use foldr::FoldR;
 
-let v = vec![1, 2, 3];
+let v = vec![1, 2, 3, 4, 5];
 
-// Sum using foldr
-let sum = v.into_iter().foldr(0, |x, acc| x + acc);
-assert_eq!(sum, 6);
-
-// Right-associative subtraction
 let sub = v.into_iter().foldr(0, |x, acc| x - acc);
-assert_eq!(sub, 2); // 1 - (2 - (3 - 0))
+assert_eq!(sub, 2); // 1 - (2 - (3 - (4 - (5 - 0))))
 ```
 
 💡 In contrast to fold (left fold), foldr starts from the rightmost element. This can change the result when the operation is not associative, like subtraction or string concatenation.
